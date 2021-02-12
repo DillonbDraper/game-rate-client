@@ -1,5 +1,7 @@
 import { GameProvider } from "./game/GameProvider.js"
 import { Route } from "react-router-dom"
+import { GameList } from "./game/GameList.js"
+import { GameDetail } from "./game/GameDetail.js"
 
 
 export const AppViews = () => {
@@ -9,7 +11,14 @@ export const AppViews = () => {
             lineHeight: "1.75rem"
         }}>
             <GameProvider>
-                <Route exact path="/" />
+                <Route exact path="/" >
+                    <GameList />
+                </Route>
+
+                <Route exact path="/games/:gameId(\d+)" render={
+                                    props =>
+                                        <GameDetail {...props} />
+                                } />
             </GameProvider>
         </main>
     </>
