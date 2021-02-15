@@ -14,6 +14,7 @@ export const AppViews = () => {
         }}>
             <GameProvider>
                 <CategoryProvider>
+                    <ReviewProvider>
                     <Route exact path="/" >
                         <GameList />
                     </Route>
@@ -25,6 +26,10 @@ export const AppViews = () => {
                     <Route exact path="/games/new" >
                         <GameForm />
                     </Route>
+                    <Route exact path="/games/:gameId(\d+)/review">
+                        <ReviewForm {...props} />
+                    </Route>
+                    </ReviewProvider>
                 </CategoryProvider>
             </GameProvider>
         </main>
