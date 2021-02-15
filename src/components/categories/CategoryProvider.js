@@ -50,8 +50,8 @@ export const CategoryProvider = (props) => {
     // }
 
     return (
-        <categoryContext.Provider value={{ categories, getCategories }} >
+        <CategoryContext.Provider value={{ categories, getCategories }} >
             { props.children}
-        </categoryContext.Provider>
+        </CategoryContext.Provider>
     )
 }

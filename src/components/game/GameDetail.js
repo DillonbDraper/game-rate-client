@@ -24,7 +24,7 @@ export const GameDetail = (props) => {
                         <div className="game__skillLevel">Released in {game.release_year}</div>
                         <div className="game__length">{game.title} is approximately {game.time_to_beat} long</div>
                         <div className="game__content">It is rated {game.esrb_rating} by the ESRB</div>
-                        <div className="game__categories">Game is found in: </div>
+                        <div className="game__categories">Game is found in following categories: {game.categories[0].label} </div>
 
                              <button className="btn btn-3"
                                     onClick={() => history.push(`/`)}
