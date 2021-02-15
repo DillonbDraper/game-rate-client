@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+import { ReviewList } from '../reviews/ReviewList'
 import { GameContext } from "./GameProvider"
 
 export const GameDetail = (props) => {
@@ -30,6 +31,10 @@ export const GameDetail = (props) => {
             <button className="btn btn-3"
                 onClick={() => history.push(`/`)}
             >Return to all games</button>
+
+            <div className="game_reviews">
+                <ReviewList gameId={params.gameId} />
+            </div>
 
             <button className="btn btn-3"
                 onClick={() => history.push(`games/${params.gameId}/review`)}

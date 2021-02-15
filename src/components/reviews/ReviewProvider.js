@@ -16,6 +16,16 @@ export const ReviewProvider = (props) => {
             .then(setReviews)
     }
 
+    const getCorrespondingReviews = gameId => {
+        return fetch(`http://localhost:8000/reviews/${gameId}`, {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            }
+        })
+            .then(response => response.json())
+            .then(setReviews)
+    }
+
     const createReview = (review) => {
         return fetch("http://localhost:8000/reviews", {
             method: "POST",
@@ -28,7 +38,7 @@ export const ReviewProvider = (props) => {
     }
 
     return (
-        <ReviewContext.Provider value={{ reviews, getReviews, setReviews, createReview }} >
+        <ReviewContext.Provider value={{ reviews, getReviews, setReviews, createReview, getCorrespondingReviews }} >
             { props.children }
         </ReviewContext.Provider>
     )
