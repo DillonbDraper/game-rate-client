@@ -3,7 +3,7 @@ import React, { useState } from "react"
 export const ReviewContext = React.createContext()
 
 export const ReviewProvider = (props) => {
-    const [reviews, setReviews] = useState([])
+    const [reviews, setReviews] = useState([{}])
 
 
     const getReviews = () => {

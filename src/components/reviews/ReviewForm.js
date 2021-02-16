@@ -12,7 +12,7 @@ export const ReviewForm = props => {
     })
 
     const changeReviewState = (domEvent) => {
-        const newReviewState = Object.assign({}, currentGame)
+        const newReviewState = Object.assign({}, currentReview)
         newReviewState[domEvent.target.name] = domEvent.target.value
         setCurrentReview(newReviewState)
     }
@@ -22,7 +22,7 @@ export const ReviewForm = props => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="body">Input review body here: </label>
-                    <input type="textarea" name="title" required autoFocus className="form-control"
+                    <textarea name="body" required autoFocus className="form-control"
                         value={currentReview.body}
                         onChange={changeReviewState}
                     />
@@ -33,7 +33,7 @@ export const ReviewForm = props => {
                     const review = {
                         body: currentReview.body,
                         player: localStorage.getItem('lu_token'),
-                        game: params.gameId
+                        game: parseInt(params.gameId)
                     }
 
                     // Send POST request to your API

@@ -4,14 +4,13 @@ import { ReviewList } from '../reviews/ReviewList'
 import { GameContext } from "./GameProvider"
 
 export const GameDetail = (props) => {
-    const { game, getGame } = useContext(GameContext)
+    const { game, getGameById } = useContext(GameContext)
     const history = useHistory()
     const params = useParams()
 
 
     useEffect(() => {
-        getGame(params.gameId)
-    }, [])
+        getGameById(params.gameId)}, [])
 
 
 
@@ -37,7 +36,7 @@ export const GameDetail = (props) => {
             </div>
 
             <button className="btn btn-3"
-                onClick={() => history.push(`games/${params.gameId}/review`)}
+                onClick={() => history.push(`/games/${params.gameId}/review`)}
             >Review Game</button>
         </section>
 

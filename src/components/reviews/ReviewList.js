@@ -1,19 +1,23 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { ReviewContext } from "./ReviewProvider.js"
 
 export const ReviewList = props => {
     const { getCorrespondingReviews, reviews } = useContext(ReviewContext)
-    const [ reviewSet, setReviewSet ] = useState([])
 
 
-    useEffect(getCorrespondingReviews(props.gameId)).then(setReviewSet), [])
+    useEffect(() => {
+        getCorrespondingReviews(props.gameId)
+    }, [])
 
     return (
-        reviewSet.map(review => {
-            <section className="reviews">
-            <p className="reviewAuthor">Review by: {review.user_id}</p>
+        <>
+        <h1>I am here</h1>
+        {reviews.map(review => {
+           return <section key={review.id} className="review">
+            <p className="reviewAuthor">Review by: {review.user}</p>
             <p className="reviewText">{review.body}</p>
             </section>
-        })
+        })}
+        </>
     )
 }
